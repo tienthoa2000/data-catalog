@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18.176" height="15.95" viewBox="0 0 18.176 15.95">
+  <g id="グループ_984" data-name="グループ 984" transform="translate(-9.466 -11.409)">
+    <g id="グループ_982" data-name="グループ 982">
+      <g id="多角形_63" data-name="多角形 63" transform="translate(9.466 27.36) rotate(-90)" fill="#62bb46">
+        <path d="M 5.556184768676758 3.5 L 1.062617301940918 3.5 L 3.309401035308838 0.7843612432479858 L 5.556184768676758 3.5 Z" stroke="none"/>
+        <path d="M 3.309401035308838 1.568722486495972 L 2.12523365020752 3 L 4.493568420410156 3 L 3.309401035308838 1.568722486495972 M 3.309401035308838 0 L 6.618801116943359 4 L 9.5367431640625e-07 4 L 3.309401035308838 0 Z" stroke="none" fill="#62bb46"/>
+      </g>
+      <path id="パス_97" data-name="パス 97" d="M16.9,19.564h13.54V14.283" transform="translate(-4.793 4.486)" fill="none" stroke="#62bb46" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <g id="グループ_983" data-name="グループ 983" transform="translate(11.466 11.409)">
+      <g id="多角形_63-2" data-name="多角形 63" transform="translate(16.176 0) rotate(90)" fill="#62bb46">
+        <path d="M 5.556350231170654 3.5 L 1.062639474868774 3.5 L 3.309494733810425 0.7843485474586487 L 5.556350231170654 3.5 Z" stroke="none"/>
+        <path d="M 3.309494733810425 1.568707227706909 L 2.125282287597656 3 L 4.493707180023193 3 L 3.309494733810425 1.568707227706909 M 3.309494733810425 0 L 6.618984699249268 4 L 4.76837158203125e-06 4 L 3.309494733810425 0 Z" stroke="none" fill="#62bb46"/>
+      </g>
+      <path id="パス_97-2" data-name="パス 97" d="M30.435,14.283H16.9v5.281" transform="translate(-16.896 -10.974)" fill="none" stroke="#62bb46" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

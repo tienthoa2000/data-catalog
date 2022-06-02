@@ -1,0 +1,34 @@
+<svg id="Group_2108" data-name="Group 2108" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7.956" height="9.669" viewBox="0 0 7.956 9.669">
+    <defs>
+        <clipPath id="clip">
+            <use xlink:href="#fill"/>
+        </clipPath>
+        <clipPath id="clip-2">
+            <use xlink:href="#fill-2"/>
+        </clipPath>
+        <clipPath id="clip-3">
+            <use xlink:href="#fill-3"/>
+        </clipPath>
+        <clipPath id="clip-4">
+            <use xlink:href="#fill-4"/>
+        </clipPath>
+    </defs>
+    <path id="Subtraction_484" data-name="Subtraction 484" d="M7.956,9.669H0V0H4.948V3.008H7.956V9.669Z" fill="#3b3c41"/>
+    <g id="Rectangle_1423" data-name="Rectangle 1423" transform="translate(1.169 2.65)" fill="#f7f7f7" stroke="#fff" stroke-width="1">
+        <rect id="fill" width="0.851" height="5.958" stroke="none"/>
+        <path d="M0,0.5h0.851158857345581M0.5,0v5.958115577697754M0.851158857345581,5.458115577697754h-0.851158857345581M0.35115885734558105,5.958115577697754v-5.958115577697754" fill="none" clip-path="url(#clip)"/>
+    </g>
+    <g id="Rectangle_1424" data-name="Rectangle 1424" transform="translate(4.347 6.055)" fill="#f7f7f7" stroke="#fff" stroke-width="1">
+        <rect id="fill-2" width="0.851" height="2.553" stroke="none"/>
+        <path d="M0,0.5h0.851158857345581M0.5,0v2.5534780025482178M0.851158857345581,2.0534780025482178h-0.851158857345581M0.35115885734558105,2.5534780025482178v-2.5534780025482178" fill="none" clip-path="url(#clip-2)"/>
+    </g>
+    <g id="Rectangle_1425" data-name="Rectangle 1425" transform="translate(2.758 3.501)" fill="#f7f7f7" stroke="#fff" stroke-width="1">
+        <rect id="fill-3" width="0.851" height="5.107" stroke="none"/>
+        <path d="M0,0.5h0.851158857345581M0.5,0v5.1069560050964355M0.851158857345581,4.6069560050964355h-0.851158857345581M0.35115885734558105,5.1069560050964355v-5.1069560050964355" fill="none" clip-path="url(#clip-3)"/>
+    </g>
+    <g id="Rectangle_1426" data-name="Rectangle 1426" transform="translate(5.936 4.835)" fill="#f7f7f7" stroke="#fff" stroke-width="1">
+        <rect id="fill-4" width="0.851" height="3.773" stroke="none"/>
+        <path d="M0,0.5h0.851158857345581M0.5,0v3.7734177112579346M0.851158857345581,3.2734177112579346h-0.851158857345581M0.35115885734558105,3.7734177112579346v-3.7734177112579346" fill="none" clip-path="url(#clip-4)"/>
+    </g>
+    <path id="Subtraction_485" data-name="Subtraction 485" d="M2.407,2.407H0V0L2.406,2.406Z" transform="translate(5.516 0.034)" fill="#f2c812"/>
+</svg>

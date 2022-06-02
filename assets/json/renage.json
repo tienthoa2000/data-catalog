@@ -1,0 +1,559 @@
+{
+  "item": {
+    "id": 0,
+    "label": "",
+    "name": "",
+    "type": "hidden",
+    "children": [
+    {
+        "id": 1,
+        "label": "activity",
+        "name": "GetSQLPoolTableDefinition",
+        "type": "Lookup",
+        "dependsOn": [],
+        "source": {
+        "type": "SqlMISource",
+        "sqlReaderQuery": {
+            "value": "SELECT [SchemaName]\n      ,[TableName]\n      ,[DistributionDefinition]\n      ,[PartitionDefinition]\n      ,[OptionDefinition]\n      ,[ModelTableName]\n      ,[StagingTableName]\n      ,[IntputTableName]\n      ,[PrimaryKeyName]\n      ,[PrimaryKeyColumn]\n      ,[ClusteredIndexDDL]\n      ,[NonClusteredIndexDDL]\n      ,[StatisticsDDL]\n  FROM [GMX_CTRL].[dbo].[SQLPoolTableDefinition]\n  WHERE SchemaName = '[gem]'\nAND TableName = '[ExportUsers]'",
+            "type": "Expression"
+        },
+        "partitionOption": "None"
+        },
+        "dataset": {
+            "referenceId": 1001,
+            "referenceName": "AzureSQL_MI",
+            "type": "DatasetReference",
+            "parameters": {
+                "MIServerName": {
+                "value": "@pipeline().parameters.MIServerName",
+                "type": "Expression"
+                },
+                "MIDBName": {
+                "value": "@pipeline().parameters.FromMICTRLDatabaseName",
+                "type": "Expression"
+                }
+            },
+            "detail": {
+                "id": 1001,
+                "resoureId": "/subscriptions/73b7db99-4942-4fcb-8c90-729e86246d83/resourceGroups/TEL-RG-G1P-GMX-DEV01-05/providers/Microsoft.DataFactory/factories/telg1pgmxdev01df01/datasets/AzureSQL_MI",
+                "name": "AzureSQL_MI",
+                "type": "Microsoft.DataFactory/factories/datasets",
+                "properties": {
+                    "linkedServiceName": {
+                        "referenceName": "PoCMI",
+                        "type": "LinkedServiceReference",
+                        "parameters": {
+                            "DBName": {
+                                "value": "@dataset().MIDBName",
+                                "type": "Expression"
+                            },
+                            "ServerName": {
+                                "value": "@dataset().MIServerName",
+                                "type": "Expression"
+                            }
+                        }
+                    },
+                    "parameters": {
+                        "MIServerName": {
+                            "type": "string"
+                        },
+                        "MIDBName": {
+                            "type": "string"
+                        }
+                    },
+                    "annotations": [],
+                    "type": "AzureSqlMITable",
+                    "schema": [],
+                    "typeProperties": {}
+                },
+                "etag": "bf001662-0000-2300-0000-5f9bc88c0000"
+            }
+        }
+    },
+    {
+        "id": 2,
+        "label": "activity",
+        "name": "usp_UpdateOrchestrateStatus_Start",
+        "type": "SqlServerStoredProcedure",
+        "dependsOn": [],
+        "storedProcedureName": "[dbo].[usp_UpdateOrchestrateStatus]",
+        "storedProcedureParameters": {
+            "dtPipelineEndTime": {
+                "value": {
+                    "value": "@convertTimeZone(getFutureTime(0,'Day'),'UTC','Tokyo Standard Time')",
+                    "type": "Expression"
+                },
+                "type": "DateTime"
+            },
+            "dtPipelineStartTime": {
+                "value": {
+                    "value": "@convertTimeZone(pipeline().TriggerTime,'UTC','Tokyo Standard Time')",
+                    "type": "Expression"
+                },
+                "type": "DateTime"
+            },
+            "intPipelineStatus": {
+                "value": "0",
+                "type": "Int32"
+            },
+            "strOrchestrateName": {
+                "value": {
+                    "value": "@pipeline().DataFactory",
+                    "type": "Expression"
+                },
+                "type": "String"
+            },
+            "strPipelineName": {
+                "value": {
+                    "value": "@pipeline().Pipeline",
+                    "type": "Expression"
+                },
+                "type": "String"
+            },
+            "strPipelineOutputMessage": {
+                "value": {
+                    "value": "@trim('')",
+                    "type": "Expression"
+                },
+                "type": "String"
+            },
+            "strPipelineRunID": {
+                "value": {
+                    "value": "@pipeline().RunId",
+                    "type": "Expression"
+                },
+                "type": "String"
+            },
+            "strPipelineTriggerID": {
+                "value": {
+                    "value": "@pipeline().TriggerId",
+                    "type": "Expression"
+                },
+                "type": "String"
+            },
+            "strPipelineTriggerName": {
+                "value": {
+                    "value": "@pipeline().TriggerName",
+                    "type": "Expression"
+                },
+                "type": "String"
+            },
+            "strPipelineTriggerType": {
+                "value": {
+                    "value": "@pipeline().TriggerType",
+                    "type": "Expression"
+                },
+                "type": "String"
+            },
+            "strTableOrViewName": {
+                "value": {
+                    "value": "@replace(pipeline().parameters.ToSynapseTableName,'_Input','')",
+                    "type": "Expression"
+                },
+                "type": "String"
+            },
+            "strSchemaName": {
+                "value": {
+                    "value": "@pipeline().parameters.ToSynapseSchemaName",
+                    "type": "Expression"
+                },
+                "type": "String"
+            }
+        },
+        "linkedServiceName": {
+            "referenceId": 2001,
+            "referenceName": "PoCMI",
+            "type": "LinkedServiceReference",
+            "parameters": {
+                "DBName": {
+                    "value": "@pipeline().parameters.FromMICTRLDatabaseName",
+                    "type": "Expression"
+                },
+                "ServerName": {
+                    "value": "@pipeline().parameters.MIServerName",
+                    "type": "Expression"
+                }
+            },
+            "detail": {
+                "id": 2001,
+                "resoureId": "/subscriptions/73b7db99-4942-4fcb-8c90-729e86246d83/resourceGroups/TEL-RG-G1P-GMX-DEV01-05/providers/Microsoft.DataFactory/factories/telg1pgmxdev01df01/datasets/AzureSQL_MI",
+                "label": "link",
+                "name": "AzureSQL_MI",
+                "type": "Microsoft.DataFactory/factories/datasets",
+                "properties": {
+                    "linkedServiceName": {
+                        "referenceName": "PoCMI",
+                        "type": "LinkedServiceReference",
+                        "parameters": {
+                            "DBName": {
+                                "value": "@dataset().MIDBName",
+                                "type": "Expression"
+                            },
+                            "ServerName": {
+                                "value": "@dataset().MIServerName",
+                                "type": "Expression"
+                            }
+                        }
+                    },
+                    "parameters": {
+                        "MIServerName": {
+                            "type": "string"
+                        },
+                        "MIDBName": {
+                            "type": "string"
+                        }
+                    },
+                    "annotations": [],
+                    "type": "AzureSqlMITable",
+                    "schema": [],
+                    "typeProperties": {}
+                },
+                "etag": "bf001662-0000-2300-0000-5f9bc88c0000"
+            }
+        },
+        "children": [
+        {
+            "id": 3,
+            "label": "activity",
+            "name": "usp_CreateInputTables",
+            "type": "SqlServerStoredProcedure",
+            "dependsOn": [
+            {
+                "id": "3dxpfn-215x5k-hzx1-1cs3js",
+                "activityId": 1,
+                "activity": "GetSQLPoolTableDefinition",
+                "dependencyConditions": [
+                "Succeeded"
+                ]
+            },
+            {
+                "id": "3dxpfn-215x5k-hzx1-1cs3js2",
+                "activityId": 2,
+                "activity": "usp_UpdateOrchestrateStatus_Start",
+                "dependencyConditions": [
+                "Succeeded"
+                ]
+            }
+            ],
+            "storedProcedureName": {
+            "value": "@pipeline().parameters.CreateInputTableProc",
+            "type": "Expression"
+            },
+            "storedProcedureParameters": {
+                "strIsDynamicSQLMonitorLog": {
+                    "value": "1",
+                    "type": "String"
+                },
+                "strClusteredIndexDDL": {
+                    "value": {
+                    "value": "@activity('GetSQLPoolTableDefinition').output.FirstRow.ClusteredIndexDDL",
+                    "type": "Expression"
+                    },
+                    "type": "String"
+                },
+                "strDistributionDefinition": {
+                    "value": {
+                        "value": "@activity('GetSQLPoolTableDefinition').output.FirstRow.DistributionDefinition",
+                        "type": "Expression"
+                    },
+                    "type": "String"
+                },
+                "strIntputTableName": {
+                    "value": {
+                        "value": "@activity('GetSQLPoolTableDefinition').output.FirstRow.IntputTableName",
+                        "type": "Expression"
+                    },
+                    "type": "String"
+                },
+                "strModelTableName": {
+                    "value": {
+                        "value": "@activity('GetSQLPoolTableDefinition').output.FirstRow.ModelTableName",
+                        "type": "Expression"
+                    },
+                    "type": "String"
+                },
+                "strNonClusteredIndexDDL": {
+                    "value": {
+                        "value": "@activity('GetSQLPoolTableDefinition').output.FirstRow.NonClusteredIndexDDL",
+                        "type": "Expression"
+                    },
+                    "type": "String"
+                },
+                "strPrimaryKeyColumn": {
+                    "value": {
+                        "value": "@activity('GetSQLPoolTableDefinition').output.FirstRow.PrimaryKeyColumn",
+                        "type": "Expression"
+                    },
+                    "type": "String"
+                },
+                "strPrimaryKeyName": {
+                    "value": {
+                        "value": "@activity('GetSQLPoolTableDefinition').output.FirstRow.PrimaryKeyName",
+                        "type": "Expression"
+                    },
+                    "type": "String"
+                },
+                "strSchemaName": {
+                    "value": {
+                        "value": "@activity('GetSQLPoolTableDefinition').output.FirstRow.SchemaName",
+                        "type": "Expression"
+                    },
+                    "type": "String"
+                },
+                "strStagingTableName": {
+                    "value": {
+                        "value": "@activity('GetSQLPoolTableDefinition').output.FirstRow.StagingTableName",
+                        "type": "Expression"
+                    },
+                    "type": "String"
+                },
+                "strStatisticsDDL": {
+                    "value": {
+                        "value": "@activity('GetSQLPoolTableDefinition').output.FirstRow.StatisticsDDL",
+                        "type": "Expression"
+                    },
+                    "type": "String"
+                },
+                "strTableName": {
+                    "value": {
+                        "value": "@activity('GetSQLPoolTableDefinition').output.FirstRow.TableName",
+                        "type": "Expression"
+                    },
+                    "type": "String"
+                },
+                "intDeleteDynamicSQLMonitorLogMonth": {
+                    "value": "12",
+                    "type": "Int32"
+                },
+                "strPartitionDefinition": {
+                    "value": {
+                        "value": "@activity('GetSQLPoolTableDefinition').output.FirstRow.PartitionDefinition",
+                        "type": "Expression"
+                    },
+                    "type": "String"
+                },
+                "strOptionDefinition": {
+                    "value": {
+                        "value": "@activity('GetSQLPoolTableDefinition').output.FirstRow.OptionDefinition",
+                        "type": "Expression"
+                    },
+                    "type": "String"
+                },
+                "strIsADFAutoCreateTable": {
+                    "value": "0",
+                    "type": "String"
+                }
+            },
+            "linkedServiceName": {
+                "referenceId": 2002,
+                "referenceName": "AzureSynapseAnalytics1",
+                "type": "LinkedServiceReference",
+                "parameters": {
+                    "DBName": {
+                        "value": "@pipeline().parameters.ToSynapseDBName",
+                        "type": "Expression"
+                    },
+                    "ServerName": {
+                        "value": "@pipeline().parameters.ToSynapseServerName",
+                        "type": "Expression"
+                    }
+                },
+                "detail": {
+                    "id": 2002,
+                    "resoureId": "/subscriptions/73b7db99-4942-4fcb-8c90-729e86246d83/resourceGroups/TEL-RG-G1P-GMX-DEV01-05/providers/Microsoft.DataFactory/factories/telg1pgmxdev01df01/linkedservices/AzureSynapseAnalytics1",
+                    "name": "AzureSynapseAnalytics1",
+                    "type": "Microsoft.DataFactory/factories/linkedservices",
+                    "properties": {
+                        "description": "telg1pgmxdev01dw01.database.windows.net",
+                        "parameters": {
+                            "DBName": {
+                                "type": "string"
+                            },
+                            "ServerName": {
+                                "type": "string"
+                            }
+                        },
+                        "annotations": [],
+                        "type": "AzureSqlDW",
+                        "typeProperties": {
+                            "connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=@{linkedService().ServerName};initial catalog=@{linkedService().DBName};user id=telg1pazuresqladmin",
+                            "encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI4N2M4NmExMC01NzRiLTQ2MGItYmQ3MS1jMzM2MDA3YjE1ZGMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+                        },
+                        "connectVia": {
+                            "referenceName": "GMX-IR",
+                            "type": "IntegrationRuntimeReference"
+                        }
+                    },
+                    "etag": "0a00301b-0000-2300-0000-5f2bf4d10000"
+                }
+            },
+            "children": [
+            {
+                "id": 4,
+                "label": "activity",
+                "name": "strErrMessage_usp_CreateInputTables",
+                "type": "SetVariable",
+                "dependsOn": [
+                    {
+                        "id": "3dxpfn-215x5k-hzx1-1cs3jsa",
+                        "activityId": 3,
+                        "activity": "usp_CreateInputTables",
+                        "dependencyConditions": [
+                            "Failed"
+                        ]
+                    }
+                ],
+                "variableName": "strErrMessage",
+                "value": {
+                    "value": "@activity('usp_CreateInputTables').Error.Message",
+                    "type": "Expression"
+                },
+                "children": [
+                {
+                    "id": 5,
+                    "label": "activity",
+                    "name": "usp_UpdateOrchestrateStatus_Error3",
+                    "type": "SqlServerStoredProcedure",
+                    "dependsOn": [
+                        {
+                            "id": "3dxpfn-215x5k-hzx1-1cs3jsd",
+                            "activityId": 4,
+                            "activity": "strErrMessage_usp_CreateInputTables",
+                            "dependencyConditions": [
+                                "Succeeded"
+                            ]
+                        }
+                    ],
+                    "storedProcedureName": "[dbo].[usp_UpdateOrchestrateStatus]",
+                    "storedProcedureParameters": {
+                        "dtPipelineEndTime": {
+                            "value": {
+                                "value": "@convertTimeZone(getFutureTime(0,'Day'),'UTC','Tokyo Standard Time')",
+                                "type": "Expression"
+                            },
+                            "type": "DateTime"
+                        },
+                        "dtPipelineStartTime": {
+                            "value": {
+                                "value": "@convertTimeZone(pipeline().TriggerTime,'UTC','Tokyo Standard Time')",
+                                "type": "Expression"
+                            },
+                            "type": "DateTime"
+                        },
+                        "intPipelineStatus": {
+                            "value": "0",
+                            "type": "Int32"
+                        },
+                        "strOrchestrateName": {
+                            "value": {
+                                "value": "@pipeline().DataFactory",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "strPipelineName": {
+                            "value": {
+                                "value": "@pipeline().Pipeline",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "strPipelineOutputMessage": {
+                            "value": {
+                                "value": "@variables('strErrMessage')",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "strPipelineRunID": {
+                            "value": {
+                                "value": "@pipeline().RunId",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "strPipelineTriggerID": {
+                            "value": {
+                                "value": "@pipeline().TriggerId",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "strPipelineTriggerName": {
+                            "value": {
+                                "value": "@pipeline().TriggerName",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "strPipelineTriggerType": {
+                            "value": {
+                                "value": "@pipeline().TriggerType",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "strTableOrViewName": {
+                            "value": {
+                                "value": "@replace(pipeline().parameters.ToSynapseTableName,'_Input','')",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "strSchemaName": {
+                            "value": {
+                                "value": "@pipeline().parameters.ToSynapseSchemaName",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        }
+                    },
+                    "linkedServiceName": {
+                    "referenceId": 2003,
+                    "referenceName": "PoCMI",
+                    "type": "LinkedServiceReference",
+                    "parameters": {
+                        "DBName": {
+                            "value": "@pipeline().parameters.FromMICTRLDatabaseName",
+                            "type": "Expression"
+                        },
+                        "ServerName": {
+                            "value": "@pipeline().parameters.MIServerName",
+                            "type": "Expression"
+                        }
+                    },
+                    "detail": {
+                        "id": 2003,
+                        "resoureId": "/subscriptions/73b7db99-4942-4fcb-8c90-729e86246d83/resourceGroups/TEL-RG-G1P-GMX-DEV01-05/providers/Microsoft.DataFactory/factories/telg1pgmxdev01df01/linkedservices/PoCMI",
+                        "name": "PoCMI",
+                        "type": "Microsoft.DataFactory/factories/linkedservices",
+                        "properties": {
+                            "description": "telg1pgmxdev01sqldb01.8998df290909.database.windows.net\ntelg1pgmxdev01sqldb02.5287d43d4dbd.database.windows.net",
+                            "parameters": {
+                                "DBName": {
+                                    "type": "string"
+                                },
+                                "ServerName": {
+                                    "type": "string"
+                                }
+                            },
+                            "annotations": [],
+                            "type": "AzureSqlMI",
+                            "typeProperties": {
+                                "connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=@{linkedService().ServerName};initial catalog=@{linkedService().DBName};user id=telg1pazuresqladmin",
+                                "encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI5MWJlZmE2Yi1lMGNjLTQyYTgtYjZiMS02YjA5NjgxMThiZDgiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+                            },
+                            "connectVia": {
+                                "referenceName": "GMX-IR",
+                                "type": "IntegrationRuntimeReference"
+                            }
+                        },
+                        "etag": "98006694-0000-2300-0000-5fab97a70000"
+                    }
+                }
+            }]
+        }]
+    }]
+  }]
+}
+}

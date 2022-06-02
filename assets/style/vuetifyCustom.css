@@ -1,0 +1,208 @@
+/*V-Tooltip*/
+.tooltip {
+  display: block !important;
+  z-index: 10000;
+}
+
+.tooltip .tooltip-inner {
+  background: rgba(67, 165, 196, 0.8);
+  color: white;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 12px;
+  font-weight: 700;
+  max-width: 800px;
+  font-family: 'Yu Gothic UI', 'Hiragino Kaku Gothic ProN', Arial, serif;
+}
+
+.tooltip .tooltip-arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+  margin: 5px;
+  border-color: rgba(67, 165, 196, 0.8);
+  z-index: 1;
+}
+
+.tooltip[x-placement^='top'] {
+  margin-bottom: 10px;
+}
+
+.tooltip[x-placement^='top'] .tooltip-arrow {
+  border-width: 5px 8px 0 8px;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  border-bottom-color: transparent !important;
+  bottom: -5px;
+  left: calc(50% - 5px);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.tooltip[x-placement^='bottom'] {
+  margin-top: 10px;
+}
+
+.tooltip[x-placement^='bottom'] .tooltip-arrow {
+  border-width: 0 8px 5px 8px;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  border-top-color: transparent !important;
+  top: -5px;
+  left: calc(50% - 5px);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.tooltip[x-placement^='right'] {
+  margin-left: 10px;
+}
+
+.tooltip[x-placement^='right'] .tooltip-arrow {
+  border-width: 5px 8px 5px 0;
+  border-left-color: transparent !important;
+  border-top-color: transparent !important;
+  border-bottom-color: transparent !important;
+  left: -5px;
+  top: calc(50% - 5px);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.tooltip[x-placement^='left'] {
+  margin-right: 10px;
+}
+
+.tooltip[x-placement^='left'] .tooltip-arrow {
+  border-width: 5px 0 5px 8px;
+  border-top-color: transparent !important;
+  border-right-color: transparent !important;
+  border-bottom-color: transparent !important;
+  right: -5px;
+  top: calc(50% - 5px);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.tooltip[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.15s, visibility 0.15s;
+}
+
+.tooltip[aria-hidden='false'] {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.15s;
+}
+/* End V-Tooltip */
+
+.detail-tab-content table tbody tr td {
+  color: #41434e;
+}
+.detail-tab-content table th.text-right {
+  text-align: left !important;
+}
+.detail-tab-content
+  .v-data-table
+  .v-data-table__wrapper
+  table
+  tbody
+  tr
+  td:first-child,
+.detail-tab-content
+  .v-data-table
+  .v-data-table__wrapper
+  table
+  thead
+  tr
+  th:first-child {
+  padding-left: 10px;
+  width: 120px;
+}
+.detail-tab-content
+  .v-data-table
+  .v-data-table__wrapper
+  table
+  tbody
+  tr
+  td:last-child,
+.detail-tab-content
+  .v-data-table
+  .v-data-table__wrapper
+  table
+  thead
+  tr
+  th:last-child {
+  padding-right: 10px;
+}
+.detail-tab-content table thead tr th {
+  height: 30px !important;
+  font-weight: 400;
+  color: #505050;
+}
+.detail-tab-content
+  .theme--light.v-data-table
+  > .v-data-table__wrapper
+  > table
+  > thead
+  > tr:last-child
+  > th {
+  background: rgb(234, 240, 242);
+  vertical-align: top;
+}
+.detail-tab-content
+  .theme--light.v-data-table
+  > .v-data-table__wrapper
+  > table
+  > tbody
+  > tr:hover:not(.v-data-table__expanded__content):not(.v-data-table__empty-wrapper) {
+  background: rgba(234, 240, 242, 0.7);
+}
+.detail-tab-content table tr:nth-child(even) {
+  background: rgba(234, 240, 242, 0.7);
+}
+.detail-tab-content
+  .theme--light.v-data-table
+  > .v-data-table__wrapper
+  > table
+  > tbody
+  > tr:not(:last-child)
+  > td:not(.v-data-table__mobile-row),
+.detail-tab-content
+  .theme--light.v-data-table
+  > .v-data-table__wrapper
+  > table
+  > thead
+  > tr:last-child
+  > th,
+.detail-tab-content
+  .theme--light.v-data-table
+  > .v-data-table__wrapper
+  > table
+  > tbody
+  > tr:not(:last-child)
+  > th:not(.v-data-table__mobile-row) {
+  border-bottom: thin solid #eaeaea;
+}
+
+.detail-tab-content
+.theme--light.v-data-table
+> .v-data-table__wrapper
+> table .text-end{
+  text-align: end;
+}
+#lineage-container .actions .group .v-input__control .v-messages {
+  display: none;
+}
+#lineage-container .actions .group .v-input__control .v-input__slot {
+  margin-bottom: 0;
+}
+#lineage-container .actions .group .v-input--checkbox i.v-icon {
+  color: #54acc8;
+}
+#lineage-container .actions .group .v-input__control .v-input__slot label {
+  color: #54acc8;
+  font-size: 14px;
+}

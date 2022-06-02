@@ -1,0 +1,17 @@
+@import "@/assets/stylus/variables.styl"
+.result-preview-panel
+  position fixed
+  top 0
+  right 0
+  transition .5s
+  width 100%
+  z-index 9999
+  .content
+    background #FCFCFC
+    height 100vh
+    box-shadow -4px 0px 14px #00000033
+    --webkit-box-shadow -4px 0px 14px #00000033
+    --moz-box-shadow -4px 0px 14px #00000033
+.result-preview-panel.hide
+  transition .5s
+  right -100vw

@@ -1,0 +1,53 @@
+.clip-dialog
+    z-index 10000
+    position fixed
+    top 0
+    left 0
+    width 100%
+    height 100%
+    box-sizing border-box
+    overflow-y hidden
+    #create-form
+    #move-to-form
+    #edit-form
+    #delete-clip-form
+    #delete-folder-form
+        margin auto
+        .v-card__text
+          padding 15px 20px 21px
+          >>>.v-select.v-select-folder, .v-input.v-input-folder
+            .v-input__slot
+              padding-right 0
+              height 36px
+          .label
+            font-size 10px
+          .confirm-message
+              font-size 14px
+              color #41434E
+              font-weight bold
+          >>>.v-text-field > .v-input__control > .v-input__slot
+            box-shadow none
+            border-radius 8px
+            margin-top: 5px;
+      >>>.v-btn
+          box-shadow none
+          .v-btn__content
+            font-weight 400
+    #delete-clip-form
+    #delete-folder-form
+      .v-card__text
+        padding 36px 20px
+.bounce-enter-active
+  animation bounceIn 0.5s;
+
+.bounce-leave-active
+  animation bounceIn 0.5s reverse;
+
+@keyframes bounceIn
+  0%
+    transform scale(0.5)
+    opacity 0
+  60%
+    transform scale(1.2)
+    opacity 1
+  100% transform scale(1)

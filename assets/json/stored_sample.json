@@ -1,0 +1,5 @@
+{
+  "sample":[
+    { "object_id": "875220", "definition":  "CREATE PROCEDURE [dbo].[usp_UpdateOrchestrateStatus @StrPipelineName varchar(200),    @StrSchemaName varchar(50),    @strTableOrViewName varchar(200),    @intPipelineStatus int,    @dtPipelineStartTime datetime,    @dtPipelineEndTime datetime,    @strPipelineOutputMessage nvarchar(4000),    @strPipelineRunId varchar(50),    @strPipelineTriggerID varchar(50),    @strPipelineTriggerName varchar(200),    @strPipelineTriggerType varchar(50),    @strOrchestrateName varchar(200),    AS    BEGIN        SET NOCOUNT ON        IF EXISTS (        SELECT 1        FROM [dbo].[OrchestrateStatus]        WHERE [PipelineName] = @StrTableOrViewName        AND [TableOrViewName] = @StrTableOrViewName        AND [ShemaName] = '[ZZ_FiscalPeriodExt].[CalYearMonthText].&[CFY]&[' + 'CAL:' + CompanyCode + ']&[' + CFYYear + ']&[' + CFYHalf + ']&[' + CFYQuater + ']&[' + CFYPeriod + ']' AS CFYUniqueName)"}
+  ]
+}

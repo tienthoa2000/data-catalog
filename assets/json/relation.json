@@ -1,0 +1,111 @@
+{
+  "nodes": [
+    {
+      "id":1,
+      "name": "",
+      "children": [
+        {
+          "id":2,
+          "name": "SAP_STD_FL_LIKP"
+        }
+      ]
+    },
+    {
+      "id":3,
+      "name": "Users",
+      "children": [
+        {
+          "id":4,
+          "name": "User A"
+        },
+        {
+          "id":4,
+          "name": "User B"
+        },
+        {
+          "id":5,
+          "name": "User C"
+        },
+        {
+          "id":6,
+          "name": "他 3件"
+        }
+      ]
+    },
+    {
+      "id":7,
+      "name": "Data Domains",
+      "children": [
+        {
+          "id":8,
+          "name": "販売計画"
+        },
+        {
+          "id":9,
+          "name": "売上管理"
+        },
+        {
+          "id":10,
+          "name": "在庫管理"
+        }
+      ]
+    },
+    {
+      "id":11,
+      "name": "Business Terms",
+      "children": [
+        {
+          "id":12,
+          "name": "2019/1Q"
+        },
+        {
+          "id":13,
+          "name": "2019/2Q"
+        },
+        {
+          "id":14,
+          "name": "2020/1Q"
+        }
+      ]
+    },
+    {
+      "id":15,
+      "name": "Tables",
+      "children": [
+        {
+          "id":16,
+          "name": "SAP_MMT_FL_EKKN"
+        },
+        {
+          "id":17,
+          "name": "SAP_SDT_GL_VBAK"
+        }
+      ]
+    },
+    {
+      "id":18,
+      "name": "Reports",
+      "children": [
+        {
+          "id":19,
+          "name": "Report A"
+        },
+        {
+          "id":20,
+          "name": "Report B"
+        },
+        {
+          "id":21,
+          "name": "Report C"
+        }
+      ]
+    }
+  ],
+  "links": [
+    { "source": 1, "target": 3 },
+    { "source": 1, "target": 7 },
+    { "source": 1, "target": 11 },
+    { "source": 1, "target": 15 },
+    { "source": 1, "target": 18 }
+  ]
+}
